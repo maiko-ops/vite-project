@@ -32,6 +32,7 @@ const TaskItem = ({ task, handleCheckbox, handleDelete }) => {
             className="absolute h-full w-full cursor-pointer opacity-0"
             onClick={() => handleCheckbox(task.id)}
           />
+          
           {task.status == "done" && <CheckIcon />}
           {task.status == "in_progress" && (
             <LoaderIcon className="animate-spin" />

@@ -1,12 +1,14 @@
 import InputLabel from "./InputLabel"
+import { forwardRef } from "react"
 
-const TimeSelect = (props) => {
+const TimeSelect = forwardRef((props, ref) => {
   return (
     <div className="flex flex-col gap-1 text-left">
       <InputLabel htmlfor="time">Horario</InputLabel>
       <select
         className="boder-[#ECECEC] rounded-lg border border-solid px-4 py-3 text-[#949c9f] outline-teal-500 placeholder:text-sm"
         {...props}
+        ref={ref}
       >
         <option value="morning">Manhã</option>
         <option value="afternoon">Tarde</option>
@@ -18,6 +20,5 @@ const TimeSelect = (props) => {
       )}
     </div>
   )
-}
-
+})
 export default TimeSelect

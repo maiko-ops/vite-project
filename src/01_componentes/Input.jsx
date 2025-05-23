@@ -1,18 +1,20 @@
 import InputLabel from "./InputLabel"
+import { forwardRef } from "react"
 
-const Input = ({ label, error, ...rest }) => {
+const Input = forwardRef(({ label, errorMessage, ...rest }, ref) => {
   return (
     <div className="flex flex-col space-y-1 text-left">
       <InputLabel htmlFor={rest.id}>{label}</InputLabel>
       <input
-        className="boder-[#ECECEC] rounded-lg border border-solid px-4 py-3 text-[#949c9f] outline-teal-500 placeholder:text-sm"
+        className="rounded-lg border border-solid border-[#ECECEC] px-4 py-3 outline-[#00ADB5] placeholder:text-sm placeholder:text-[#9A9C9F]"
+        ref={ref}
         {...rest}
       />
-      {error && (
-        <p className="text-left text-xs text-red-500"> {error.message}</p>
+      {errorMessage && (
+        <p className="text-left text-xs text-red-500">{errorMessage}</p>
       )}
     </div>
   )
-}
+})
 
 export default Input
